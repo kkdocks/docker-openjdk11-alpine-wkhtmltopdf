@@ -3,8 +3,6 @@ FROM nekoimi/openjdk:11-alpine3.10
 
 LABEL maintainer="nekoimi <nekoimime@gmail.com>"
 
-COPY fonts/ /usr/share/fonts/
-
 # Install dependencies for wkhtmltopdf
 RUN apk add --no-cache \
   libstdc++ \
@@ -15,23 +13,15 @@ RUN apk add --no-cache \
   ca-certificates \
   fontconfig \
   freetype \
-  ttf-dejavu \
-  ttf-droid \
-  ttf-freefont \
-  ttf-liberation \
-  ttf-ubuntu-font-family \
-&& apk add --no-cache --virtual .build-deps \
-  msttcorefonts-installer \
 \
-# Install microsoft fonts
-&& update-ms-fonts \
 && fc-cache -f \
 \
 # Clean up when done
-&& rm -rf /tmp/* \
-&& apk del .build-deps
+&& rm -rf /tmp/*
 
 # Copy wkhtmltopdf files from docker-wkhtmltopdf image
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/wkhtmltopdf
 COPY --from=wkhtmltopdf /bin/wkhtmltoimage /bin/wkhtmltoimage
 COPY --from=wkhtmltopdf /bin/libwkhtmltox* /bin/
+
+VOLUME /usr/share/fonts/chinese

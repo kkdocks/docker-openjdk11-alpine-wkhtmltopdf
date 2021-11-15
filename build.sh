@@ -4,7 +4,12 @@ docker build -t nekoimi/openjdk:11-alpine3.10-wkhtmltopdf .
 
 docker push nekoimi/openjdk:11-alpine3.10-wkhtmltopdf
 
-docker run --rm -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/tmp:/opt nekoimi/openjdk:11-alpine3.10-wkhtmltopdf wkhtmltopdf -O Landscape --enable-local-file-access /opt/demo.html /opt/demo.pdf
 
+docker run --rm -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/fonts:/usr/share/fonts/chinese -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/tmp:/opt nekoimi/openjdk:11-alpine3.10-wkhtmltopdf wkhtmltopdf -O Landscape --enable-local-file-access /opt/demo.html /opt/demo.pdf
+
+
+docker run --rm -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/tmp:/opt nekoimi/openjdk:11-alpine3.10-wkhtmltopdf wkhtmltopdf -O Landscape --enable-local-file-access https://blog.csdn.net/xiyang_1990/article/details/96885512 /opt/demo.pdf
+
+docker run --rm -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/fonts:/usr/share/fonts/chinese -v /mnt/c/Users/nekoimi/Developer/docker_projects/Nekoimi/kkdocks/docker-openjdk11-alpine-wkhtmltopdf/tmp:/opt nekoimi/openjdk:11-alpine3.10-wkhtmltopdf wkhtmltopdf -O Landscape --enable-local-file-access https://blog.csdn.net/xiyang_1990/article/details/96885512 /opt/demo01.pdf
 
 
