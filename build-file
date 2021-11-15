@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -ex;
+
+fc-cache -f
+
 docker build -t nekoimi/openjdk:11-alpine3.10-wkhtmltopdf .
 
 docker push nekoimi/openjdk:11-alpine3.10-wkhtmltopdf
