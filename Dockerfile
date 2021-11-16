@@ -13,9 +13,7 @@ RUN apk add --no-cache \
   libxext \
   libssl1.1 \
   ca-certificates \
-  fontconfig \
-  freetype \
-  ttf-dejavu \
+&& apk add --update ttf-dejavu fontconfig \
 \
 && fc-cache -f \
 \
