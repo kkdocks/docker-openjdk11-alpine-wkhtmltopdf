@@ -3,6 +3,8 @@ FROM nekoimi/openjdk:11-alpine3.10
 
 LABEL maintainer="nekoimi <nekoimime@gmail.com>"
 
+COPY fonts/ /usr/share/fonts/
+
 # Install dependencies for wkhtmltopdf
 RUN apk add --no-cache \
   libstdc++ \
@@ -13,6 +15,7 @@ RUN apk add --no-cache \
   ca-certificates \
   fontconfig \
   freetype \
+  ttf-dejavu \
 \
 && fc-cache -f \
 \
